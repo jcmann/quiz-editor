@@ -264,8 +264,11 @@ export class AppComponent implements OnInit {
           question: y.name
         }))
       }));
-
-      const newQuizzes: QuirkyShapeForSavingNewQuizzes[] = [];
+      // for slack n tell do something similar to the above code.
+      const newQuizzes: QuirkyShapeForSavingNewQuizzes[] = this.getNewlyAddedQuizzes().map(x => ({
+        quizName: x.name,
+        quizQuestions: x.questions.map(y => y.name)
+      }));
 
       const numberOfEditedQuizzesSaved = await this.quizSvc.saveQuizzes(
         editedQuizzes

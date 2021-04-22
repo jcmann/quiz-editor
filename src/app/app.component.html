@@ -96,6 +96,7 @@
             class="badge badge-danger ml-1"
             *ngIf="deletedQuizCount > 0"
             [title]="deletedQuizTooltip"
+            (click)="saveQuizzes()"
           >
             -{{ deletedQuizCount }}
           </span>
